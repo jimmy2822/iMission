@@ -11,6 +11,20 @@ Things you may want to cover:
 * Rails version
 5.2.0
 
+* Table Schema
+- Model User
+email:string
+password:string
+name:string
+role:integer
+
+- Model Task
+title:string
+description:string
+deadline:date
+priority:integer
+tag:string
+
 * System dependencies
 
 * Configuration
