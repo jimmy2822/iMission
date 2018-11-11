@@ -29,5 +29,3 @@
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 
-# 忽略 local 測試用相關檔案
-Guardfile
