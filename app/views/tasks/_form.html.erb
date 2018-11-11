@@ -1,0 +1,10 @@
+<table>
+  <%= form_for task do |f| %>
+    <tr><td>任務名稱：<%= f.text_field :title %></td></tr>
+    <tr><td>任務描述：<%= f.text_area :description%></td></tr>
+    <tr><td>任務狀態：<%= f.select :state , options_for_select(["未完成", "進行中", "已完成"]) %></td></tr>
+    <tr><td>任務優先度：<%= f.select :priority, options_for_select(["一般", "中等", "緊急"]) %></td></tr>
+    <tr><td>任務截止日期：<%= f.datetime_select :deadline %></td></tr>
+    <tr><td><%= f.submit %></td></tr>
+  <% end %>
+</table>

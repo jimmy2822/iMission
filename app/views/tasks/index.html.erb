@@ -1,0 +1,34 @@
+<h1>任務列表</h1>
+
+<%= link_to "創建任務", new_task_path %>
+<table>
+  <thead>
+    <tr>
+      <td>任務名稱</td>
+      <td>任務描述</td>
+      <td>狀態</td>
+      <td>優先度</td>
+      <td>創建日期</td>
+      <td>截止日期</td>
+      <td>檢視任務</td>
+      <td>編輯任務</td>
+      <td>刪除任務</td>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tasks.each do |task| %>
+      <tr>
+        <td><%= task.title %></td>
+        <td><%= task.description %></td>
+        <td><%= task.state %></td>
+        <td><%= task.priority %></td>
+        <td><%= task.created_at %></td>
+        <td><%= task.deadline %></td>
+        <td><%= link_to "檢視", task_path(task[:id]) %></td>
+        <td><%= link_to "編輯", edit_task_path(task[:id]) %></td>
+        <td><%= link_to "刪除", task_path(task[:id]), method: :delete, data:{ confirm:"確認刪除？" } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
