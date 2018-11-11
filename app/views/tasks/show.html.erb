@@ -1,10 +1,10 @@
 <h1><%= @task.title %></h1>
 <table>
-    <tr><td>任務描述：<%= @task.description %></td></tr>
-    <tr><td>任務狀態：<%= @task.state %></td></tr>
-    <tr><td>任務優先度：<%= @task.priority %></td></tr>
-    <tr><td>任務創建日期：<%= @task.created_at %></td></tr>
-    <tr><td>任務截止日期：<%= @task.deadline %></td></tr>
+  <tr><td><%= t("task.description")%>：<%= @task.description %></td></tr>
+  <tr><td><%= t("task.state")%>：<%= t("states.#{@task.state}") %></td></tr>
+  <tr><td><%= t("task.priority") %>：<%= t("priorities.#{@task.priority}") %></td></tr>
+  <tr><td><%= t("task.created_at")%>：<%= @task.created_at %></td></tr>
+  <tr><td><%= t("task.deadline")%>：<%= @task.deadline %></td></tr>
 </table>
 
-<div><%= link_to "回到任務列表", tasks_path %> </div>
+<div><%= link_to t("task.back_task_list"), tasks_path %> </div>
