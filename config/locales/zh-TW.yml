@@ -13,6 +13,11 @@ zh-TW:
     update: 更新任務資訊
     view: 檢視任務
     delete: 刪除任務
+    add_success: 新增任務成功
+    add_fail: 新增任務失敗
+    update_success: 更新任務成功
+    update_fail: 更新任務失敗
+    delete_success: 刪除任務失敗 
   priorities:
     low: 低
     normal: 中

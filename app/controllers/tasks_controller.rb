@@ -14,10 +14,10 @@ class TasksController < ApplicationController
     @task = Task.new(task_params)
 
     if @task.save
-      redirect_to tasks_path, notice: "新增成功"
+      redirect_to tasks_path, notice: I18n.t("task.add_success") 
     else
       #新增失敗時借用 new 的頁面，不會讓使用者輸入的資料消失
-      render :new , notice: "創建失敗"
+      render :new , notice: I18n.t("task.add_fail") 
     end
   end
 
@@ -33,16 +33,16 @@ class TasksController < ApplicationController
     @task = Task.find_by(id: params[:id])
     if @task.update(task_params)
       @task.save 
-      redirect_to tasks_path, notice: "更新任務成功"
+      redirect_to tasks_path, notice: I18n.t("task.update_success") 
     else
-      render :edit, notice: "更新失敗"
+      render :edit, notice: I18n.t("task.update_fail") 
     end
   end
 
   def destroy
     @task = Task.find_by(id: params[:id])
     @task.destroy if @task
-    redirect_to tasks_path, notice: "刪除任務成功"
+    redirect_to tasks_path, notice: I18n.t("task.delete_success")
   end
 
   private
