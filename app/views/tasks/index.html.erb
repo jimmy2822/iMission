@@ -4,12 +4,12 @@
 <table>
   <thead>
     <tr>
-      <td><%= t("task.title")%></td>
+      <td><%= t("task.title") %></td>
       <td><%= t("task.description")%></td>
-      <td><%= t("task.state")%></td>
-      <td><%= t("task.priority")%></td>
-      <td><%= t("task.created_at")%></td>
-      <td><%= t("task.deadline")%></td>
+      <td><%= link_to t("task.state"), tasks_path(sorting: "state") %></td>
+      <td><%= link_to t("task.priority"), tasks_path(sorting: "priority") %></td>
+      <td><%= link_to t("task.created_at"), tasks_path(sorting: "created_at") %></td>
+      <td><%= link_to t("task.deadline"), tasks_path(sorting: "deadline") %></td>
       <td><%= t("task.view")%></td>
       <td><%= t("task.edit")%></td>
       <td><%= t("task.delete")%></td>

@@ -1,7 +1,9 @@
 class TasksController < ApplicationController
   #從Task Model 撈出所有任務資料存入變數提供給index view用
   def index 
-    @tasks = Task.all
+    #若沒給排序，預設用 id 排序
+    params[:sorting] = "id" if params[:sorting] == nil
+    @tasks = Task.all.order("#{params[:sorting]} DESC") 
   end
 
   #在新增的頁面提供 @task 給 form 使用
