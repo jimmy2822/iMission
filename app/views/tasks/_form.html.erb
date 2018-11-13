@@ -1,3 +1,13 @@
+<%#處理驗證的錯誤信息%>
+<% if task.errors.any? %>
+  <ul>
+    <% task.errors.full_messages.each do |message| %>
+      <li style="color:red; "><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%#處理任務表單%>
 <table>
   <%= form_for task do |f| %>
     <tr><td><%= t("task.title")%>：<%= f.text_field :title %></td></tr>

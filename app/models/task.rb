@@ -1,4 +1,5 @@
 class Task < ApplicationRecord
+  validates :title, presence: true 
   enum state: { 
     created: 0,
     progressing: 1,
@@ -10,4 +11,6 @@ class Task < ApplicationRecord
     normal: 1,
     high: 2
   }
+
+  
 end

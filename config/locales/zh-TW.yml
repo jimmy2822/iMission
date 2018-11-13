@@ -29,12 +29,20 @@ zh-TW:
   delete: 刪除
   edit: 編輯
   view: 檢視
-    
+
   activerecord:
+    attributes:
+      task:
+        title: 任務名稱
     models:
       task: 任務
       user: 使用者
     errors:
+      models:
+        task:
+          attributes:
+            title:
+              blank: 不可為空白
       messages:
         record_invalid: "校驗失敗: %{errors}"
         restrict_dependent_destroy:
