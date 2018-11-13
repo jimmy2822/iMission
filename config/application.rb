@@ -20,6 +20,6 @@ module IMission
     config.i18n.default_locale = :"zh-TW" 
 
     # Setting timezone at Taiwan
-    config.time_zone = "Taipei"
+    config.time_zone = "Asia/Taipei"
   end
 end
