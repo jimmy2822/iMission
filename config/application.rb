@@ -15,5 +15,11 @@ module IMission
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
+
+    # Using i18n for localnize Text
+    config.i18n.default_locale = :"zh-TW" 
+
+    # Setting timezone at Taiwan
+    config.time_zone = "Asia/Taipei"
   end
 end
