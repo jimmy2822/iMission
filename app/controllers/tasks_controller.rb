@@ -7,6 +7,7 @@ class TasksController < ApplicationController
     @tasks = @tasks.where(state: sort_params[:search_state]) if sort_params[:search_state].present?
     @tasks = sorting_by(@tasks, :priority)
     @tasks = sorting_by(@tasks, :state)
+    @tasks = @tasks.page(params[:page])
   end
 
   #在新增的頁面提供 @task 給 form 使用

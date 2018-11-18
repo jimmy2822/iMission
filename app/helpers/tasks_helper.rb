@@ -10,6 +10,6 @@ module TasksHelper
   end
 
   def search_options
-    params.permit(:title, :search_state)
+    params.permit(:title, :search_state, :page)
   end
 end
