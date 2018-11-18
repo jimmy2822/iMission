@@ -7,9 +7,10 @@
 <% end %> 
 <br>
 
-<%= link_to t("task.create"), new_task_path %>
-<hr>
-<table>
+<%= link_to t("task.create"), new_task_path ,class: "btn btn-primary"%>
+<br>
+<br>
+<table class="table table-striped">
   <thead>
     <tr>
       <td><%= t("task.title") %></td>

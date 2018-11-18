@@ -10,7 +10,9 @@
   </head>
 
   <body>
-    <div> <%= flash[:notice] %> </div>
-    <%= yield %>
+    <div class="container">
+      <div> <%= flash[:notice] %> </div>
+      <%= yield %>
+    </div>
   </body>
 </html>
