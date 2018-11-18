@@ -1,4 +1,5 @@
 class TasksController < ApplicationController
+  before_action :authenticate_user!
   #從Task Model 撈出所有任務資料存入變數提供給index view用
   def index 
     #搜尋任務標題或狀態時進行處理

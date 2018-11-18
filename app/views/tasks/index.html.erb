@@ -1,4 +1,6 @@
 <h1><%= t("task.list") %></h1>
+<p>Hi, <%= current_user.email %></p>
+<p><%= link_to "Logout", logout_path, data: { method: :delete } %></p>
 
 <%= form_tag(tasks_path, method: :get) do %>
   <%= text_field_tag :title, params[:search], placeholder: t("task.search") %>
