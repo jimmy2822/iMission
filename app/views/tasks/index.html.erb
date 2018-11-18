@@ -34,9 +34,9 @@
         <td><%= t("priorities.#{task.priority}")%></td>
         <td><%= task.created_at %></td>
         <td><%= task.deadline %></td>
-        <td><%= link_to t(:view), task_path(task[:id]) %></td>
-        <td><%= link_to t(:edit), edit_task_path(task[:id]) %></td>
-        <td><%= link_to t(:delete), task_path(task[:id]), method: :delete, data:{ confirm:"確認刪除？" } %></td>
+        <td><%= link_to t(:view), task_path(task[:id]) , class:"btn btn-primary" %></td>
+        <td><%= link_to t(:edit), edit_task_path(task[:id]) , class:"btn btn-primary" %></td>
+        <td><%= link_to t(:delete), task_path(task[:id]), method: :delete, data:{ confirm:"確認刪除？" } , class:"btn btn-danger" %></td>
       </tr>
     <% end %>
   </tbody>
