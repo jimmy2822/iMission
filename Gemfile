@@ -42,6 +42,10 @@ group :development, :test do
   
   # using Rspec testing tool
   gem 'rspec-rails', '~> 3.8 '
+
+  # guard
+  gem 'guard'
+  gem 'guard-livereload'
 end
 
 group :development do

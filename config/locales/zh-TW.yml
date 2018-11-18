@@ -18,17 +18,20 @@ zh-TW:
     update_success: 更新任務成功
     update_fail: 更新任務失敗
     delete_success: 刪除任務成功 
+    search: 搜尋任務標題
   priorities:
     low: 低
     normal: 中
     high: 高
   states:
+    any: 任意
     created: 待處理 
     progressing: 進行中
     completed: 已完成
   delete: 刪除
   edit: 編輯
   view: 檢視
+  search: 搜尋
 
   activerecord:
     attributes:
