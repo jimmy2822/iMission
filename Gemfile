@@ -36,12 +36,23 @@ gem 'jbuilder', '~> 2.5'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
+## Using Kaminari for page
+gem 'kaminari'
+
+## Using Bootstrap for css design
+gem 'bootstrap', '~> 4.1.3'
+gem 'jquery-rails'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   
   # using Rspec testing tool
   gem 'rspec-rails', '~> 3.8 '
+
+  # guard
+  gem 'guard'
+  gem 'guard-livereload'
 end
 
 group :development do

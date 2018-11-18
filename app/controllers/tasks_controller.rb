@@ -1,9 +1,13 @@
 class TasksController < ApplicationController
   #從Task Model 撈出所有任務資料存入變數提供給index view用
   def index 
-    #若沒給排序，預設用 id 排序
-    params[:sorting] = "id" if params[:sorting] == nil
-    @tasks = Task.all.order("#{params[:sorting]} DESC") 
+    #搜尋任務標題或狀態時進行處理
+    @tasks = Task.all
+    @tasks = @tasks.where("title LIKE ?", "%#{sort_params[:title]}%") if sort_params[:title].present?
+    @tasks = @tasks.where(state: sort_params[:search_state]) if sort_params[:search_state].present?
+    @tasks = sorting_by(@tasks, :priority)
+    @tasks = sorting_by(@tasks, :state)
+    @tasks = @tasks.page(params[:page])
   end
 
   #在新增的頁面提供 @task 給 form 使用
@@ -48,7 +52,21 @@ class TasksController < ApplicationController
   end
 
   private
+  
+  def sorting_by(tasks, column)
+    return tasks if sort_params[column].blank?
+    case sort_params[column].to_s
+    when 'asc' then tasks.order(column => 'asc') # { 'priority' => 'asc' }, { priority: 'asc' }
+    when 'desc' then tasks.order(column => 'desc')
+    else tasks
+    end
+  end
+
   def task_params
     params.require(:task).permit(:title, :description, :priority, :state, :deadline)
+  end
+
+  def sort_params
+    params.permit(:id, :state, :title, :priority ,:created_at, :deadline, :search, :search_state)
   end
 end

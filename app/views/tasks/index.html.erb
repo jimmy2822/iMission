@@ -1,15 +1,24 @@
 <h1><%= t("task.list") %></h1>
 
-<%= link_to t("task.create"), new_task_path %>
-<table>
+<%= form_tag(tasks_path, method: :get) do %>
+  <%= text_field_tag :title, params[:search], placeholder: t("task.search") %>
+  <%= select_tag :search_state , options_for_select([[t("states.any"), nil ] ,[t("states.created"), "0"], [t("states.progressing"), "1"], [t("states.completed"), "2"]]) %>
+  <%= submit_tag t("search") %>
+<% end %> 
+<br>
+
+<%= link_to t("task.create"), new_task_path ,class: "btn btn-primary"%>
+<br>
+<br>
+<table class="table table-striped">
   <thead>
     <tr>
       <td><%= t("task.title") %></td>
       <td><%= t("task.description")%></td>
-      <td><%= link_to t("task.state"), tasks_path(sorting: "state") %></td>
-      <td><%= link_to t("task.priority"), tasks_path(sorting: "priority") %></td>
-      <td><%= link_to t("task.created_at"), tasks_path(sorting: "created_at") %></td>
-      <td><%= link_to t("task.deadline"), tasks_path(sorting: "deadline") %></td>
+      <td><%= link_to t("task.state"), tasks_path(sortable(:state)) %></td>
+      <td><%= link_to t("task.priority"), tasks_path(sortable(:priority)) %></td>
+      <td><%= link_to t("task.created_at"), tasks_path(sortable(:created_at)) %></td>
+      <td><%= link_to t("task.deadline"), tasks_path(sortable(:deadline)) %></td>
       <td><%= t("task.view")%></td>
       <td><%= t("task.edit")%></td>
       <td><%= t("task.delete")%></td>
@@ -25,10 +34,13 @@
         <td><%= t("priorities.#{task.priority}")%></td>
         <td><%= task.created_at %></td>
         <td><%= task.deadline %></td>
-        <td><%= link_to t(:view), task_path(task[:id]) %></td>
-        <td><%= link_to t(:edit), edit_task_path(task[:id]) %></td>
-        <td><%= link_to t(:delete), task_path(task[:id]), method: :delete, data:{ confirm:"確認刪除？" } %></td>
+        <td><%= link_to t(:view), task_path(task[:id]) , class:"btn btn-primary" %></td>
+        <td><%= link_to t(:edit), edit_task_path(task[:id]) , class:"btn btn-primary" %></td>
+        <td><%= link_to t(:delete), task_path(task[:id]), method: :delete, data:{ confirm:"確認刪除？" } , class:"btn btn-danger" %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
+
+
+<%= paginate @tasks %>
