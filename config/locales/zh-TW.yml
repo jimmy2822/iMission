@@ -33,6 +33,13 @@ zh-TW:
   view: 檢視
   search: 搜尋
   submit: 確認送出
+  login:
+    account: 帳號
+    password: 密碼
+    error: 帳號或密碼錯誤!
+    user_login: 使用者登入
+  logout:
+    success: 登出成功!
 
   activerecord:
     attributes:

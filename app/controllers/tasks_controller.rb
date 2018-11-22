@@ -3,11 +3,13 @@ class TasksController < ApplicationController
   #從Task Model 撈出所有任務資料存入變數提供給index view用
   def index 
     #搜尋任務標題或狀態時進行處理
-    @tasks = Task.all
+    @tasks = current_user.tasks.all
     @tasks = @tasks.where("title LIKE ?", "%#{sort_params[:title]}%") if sort_params[:title].present?
     @tasks = @tasks.where(state: sort_params[:search_state]) if sort_params[:search_state].present?
     @tasks = sorting_by(@tasks, :priority)
     @tasks = sorting_by(@tasks, :state)
+    @tesks = sorting_by(@tasks, :deadline)
+    @tesks = sorting_by(@tesks, :created_at)
     @tasks = @tasks.page(params[:page])
   end
 
@@ -19,6 +21,7 @@ class TasksController < ApplicationController
   #實際創建的處理
   def create
     @task = Task.new(task_params)
+    @task.user_id = current_user[:id]
 
     if @task.save
       redirect_to tasks_path, notice: I18n.t("task.add_success") 

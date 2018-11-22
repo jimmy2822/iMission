@@ -8,12 +8,12 @@ class SessionsController < ApplicationController
       session[:user_id] = @user.id
       redirect_to root_path
     else
-      redirect_to login_path
+      redirect_to login_path, notice: I18n.t("login.error")
     end
   end
 
   def destroy
     session[:user_id] = nil
-    redirect_to root_path
+    redirect_to root_path, notice: I18n.t("logout.success")
   end
 end

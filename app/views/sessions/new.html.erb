@@ -1,8 +1,7 @@
-<h1>使用者登入</h1>
+<h1><%= t("login.user_login") %></h1>
 <hr>
 <%= form_tag(login_path, method: :post) do %>
-  <div> 帳號：<%= text_field_tag :email %></div> <br>
-  <div> 密碼：<%= password_field_tag :password %></div><br> 
+  <div> <%=t("login.account")%>：<%= text_field_tag :email %></div> <br>
+  <div> <%=t("login.password")%>：<%= password_field_tag :password %></div><br> 
   <%= submit_tag t("submit") %>
 <% end %> 
-

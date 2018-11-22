@@ -1,4 +1,5 @@
 class Task < ApplicationRecord
+
   #關係處理
   belongs_to :user
   #驗證相關
