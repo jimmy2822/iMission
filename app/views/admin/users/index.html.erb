@@ -1,0 +1,31 @@
+<h1><%= t("user.list") %></h1>
+<p> Hi~ 管理者 <%= current_user.email %> <p>
+<p><%= link_to t("user.logout"), logout_path, data: { method: :delete } %></p>
+
+<%= link_to t("user.create"), new_admin_user_path ,class: "btn btn-primary"%>
+<br>
+<br>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <td><%= t("user.email") %></td>
+      <td><%= t("user.role")%></td>
+      <td><%= t("user.task_count")%></td>
+      <td><%= t("user.task_list")%></td>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.email %></td>
+        <td><%=t("role.#{user.role}")%></td>
+        <td><%= user.tasks.count %></td>
+        <td><%= link_to t("user.task_list"), admin_user_path(user[:id]), class:"btn btn-primary" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+<%= paginate @users %>

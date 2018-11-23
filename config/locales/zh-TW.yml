@@ -40,6 +40,19 @@ zh-TW:
     user_login: 使用者登入
   logout:
     success: 登出成功!
+  user:
+    logout: 登出
+    list: 使用者管理列表
+    create: 新增使用者
+    email: 使用者帳號
+    role: 權限
+    task_count: 任務數量
+    task_list: 任務列表
+    new: 新增使用者
+    password: 使用者密碼
+  role:
+    normal: 一般使用者
+    admin: 管理員
 
   activerecord:
     attributes:
