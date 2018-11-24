@@ -1,0 +1,34 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <td><%= t("task.title") %></td>
+      <td><%= t("task.description")%></td>
+      <td><%= link_to t("task.state"), tasks_path(sortable(:state)) %></td>
+      <td><%= link_to t("task.priority"), tasks_path(sortable(:priority)) %></td>
+      <td><%= link_to t("task.created_at"), tasks_path(sortable(:created_at)) %></td>
+      <td><%= link_to t("task.deadline"), tasks_path(sortable(:deadline)) %></td>
+      <td><%= t("task.view")%></td>
+      <td><%= t("task.edit")%></td>
+      <td><%= t("task.delete")%></td>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tasks.each do |task| %>
+      <tr>
+        <td><%= task.title %></td>
+        <td><%= task.description %></td>
+        <td><%= t("states.#{task.state}") %></td>
+        <td><%= t("priorities.#{task.priority}")%></td>
+        <td><%= task.created_at %></td>
+        <td><%= task.deadline %></td>
+        <td><%= link_to t(:view), task_path(task[:id]) , class:"btn btn-primary" %></td>
+        <td><%= link_to t(:edit), edit_task_path(task[:id]) , class:"btn btn-primary" %></td>
+        <td><%= link_to t(:delete), task_path(task[:id]), method: :delete, data:{ confirm:"確認刪除？" } , class:"btn btn-danger" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+<%= paginate @tasks %>

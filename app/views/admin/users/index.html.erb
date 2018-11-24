@@ -12,6 +12,8 @@
       <td><%= t("user.role")%></td>
       <td><%= t("user.task_count")%></td>
       <td><%= t("user.task_list")%></td>
+      <td><%= t("user.edit") %></td>
+      <td><%= t("user.delete") %></td>
     </tr>
   </thead>
 
@@ -22,6 +24,8 @@
         <td><%=t("role.#{user.role}")%></td>
         <td><%= user.tasks.count %></td>
         <td><%= link_to t("user.task_list"), admin_user_path(user[:id]), class:"btn btn-primary" %></td>
+        <td><%= link_to t("user.edit"), edit_admin_user_path(user[:id]), class:"btn btn-primary" %></td>
+        <td><%= link_to t("user.delete"), admin_user_path(user[:id]),method: :delete, class:"btn btn-danger",data: {confirm: t(:delete) } %></td>
       </tr>
     <% end %>
   </tbody>

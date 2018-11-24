@@ -1,9 +1,18 @@
-<%= form_for user, url: admin_users_path do |f| %>
+<%#處理驗證的錯誤信息%>
+<% if user.errors.any? %>
+  <ul>
+    <% user.errors.full_messages.each do |message| %>
+      <li style="color:red; "><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_for [:admin, user] do |f| %>
   <table>
     <tbody>
       <tr><td> <%= t("user.email") %>：<%= f.text_field :email %></td></tr>
       <tr><td><%= t("user.password") %>：<%= f.password_field :password %></td></tr>
-      <tr><td><%= t("user.role") %>：<%= f.select :role, User.roles.keys.to_a %></td></tr>
+      <tr><td><%= t("user.role") %>：<%= f.select :role, options_for_select([[t("role.normal"),"normal"],[t("role.admin"),"admin"]]) %></td></tr>
       <tr><td><%= f.submit %></td></tr>
     </tbody>
   </table>

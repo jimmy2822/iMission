@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   #建立關係
-  has_many :tasks
+  has_many :tasks, :dependent => :destroy
   #驗證欄位相關
   validates :email, presence: true, uniqueness: true
   #使用 Rails 內建密碼安全處理 Bcrypt
