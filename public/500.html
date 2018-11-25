@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>We're sorry, but something went wrong (500)</title>
+  <title>很抱歉，iMission 似乎哪裡出了問題，請回到上一頁繼續瀏覽 iMission，謝謝！</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
+	<meta charset="utf-8"/>
   <style>
   .rails-default-error-page {
     background-color: #EFEFEF;
@@ -58,9 +59,9 @@
   <!-- This file lives in public/500.html -->
   <div class="dialog">
     <div>
-      <h1>We're sorry, but something went wrong.</h1>
+      <h1>很抱歉，iMission 似乎哪裡出了問題。請回到上一頁繼續瀏覽 iMission，謝謝！</h1>
     </div>
-    <p>If you are the application owner check the logs for more information.</p>
+		<p><a href="javascript:history.back()">回到上一頁</a></p>
   </div>
 </body>
 </html>

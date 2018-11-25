@@ -57,6 +57,7 @@ zh-TW:
     password: 使用者密碼
     delete: 刪除使用者
     delete_success: 刪除使用者成功!
+    delete_fail: 刪除管理者失敗，管理員至少需存在一名！
   role:
     normal: 一般使用者
     admin: 管理員

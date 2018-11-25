@@ -36,7 +36,11 @@ class Admin::UsersController < Admin::BaseController
   end
 
   def destroy
-    redirect_to admin_users_path, notice: I18n.t("user.delete_success") if User.find(params[:id]).destroy
+    if User.find(params[:id]).destroy
+      redirect_to admin_users_path, notice: I18n.t("user.delete_success")
+    else
+      redirect_to admin_users_path, notice: I18n.t("user.delete_fail") 
+    end
   end
 
   private
