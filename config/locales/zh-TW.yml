@@ -40,9 +40,33 @@ zh-TW:
     user_login: 使用者登入
   logout:
     success: 登出成功!
+  user:
+    logout: 登出
+    list: 使用者管理列表
+    create: 新增使用者
+    email: 使用者帳號
+    edit: 編輯使用者
+    role: 權限
+    task_count: 任務數量
+    task_list: 任務列表
+    new: 新增使用者
+    new_success: 新增使用者成功!
+    new_fail: 新增使用者失敗！
+    update_success: 更新使用者成功!
+    update_fail: 更新使用者失敗!
+    password: 使用者密碼
+    delete: 刪除使用者
+    delete_success: 刪除使用者成功!
+    delete_fail: 刪除管理者失敗，管理員至少需存在一名！
+  role:
+    normal: 一般使用者
+    admin: 管理員
 
   activerecord:
     attributes:
+      user:
+        email: 電子郵件
+        password: 密碼
       task:
         title: 任務名稱
     models:
@@ -50,6 +74,9 @@ zh-TW:
       user: 使用者
     errors:
       models:
+        user:
+          attributes:
+            email: 電子郵件
         task:
           attributes:
             title:
