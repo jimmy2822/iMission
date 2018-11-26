@@ -18,7 +18,8 @@ zh-TW:
     update_success: 更新任務成功
     update_fail: 更新任務失敗
     delete_success: 刪除任務成功 
-    search: 搜尋任務標題
+    search: 請輸入任務標題或標籤...
+    tag_list: 任務標籤
   priorities:
     low: 低
     normal: 中

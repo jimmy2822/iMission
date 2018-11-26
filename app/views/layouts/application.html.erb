@@ -12,7 +12,7 @@
   <body>
     <div class="container">
       <% if flash[:notice] %>
-        <div class="col-lg-12 alert alert-warning"> <%= flash[:notice] %> </div>
+        <div class="alert alert-warning"> <%= flash[:notice] %> </div>
       <% end %>
       <%= yield %>
     </div>

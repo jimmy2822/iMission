@@ -7,3 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.create(name: "JimmyWu", email: "jimmy2822@gmail.com", password: "123")
+
+Tag.create(name: "game")
+Tag.create(name: "web")
+Tag.create(name: "coding")

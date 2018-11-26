@@ -1,10 +1,12 @@
 class TasksController < ApplicationController
+  before_action :find_task_id, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
   #從Task Model 撈出所有任務資料存入變數提供給index view用
   def index 
     #搜尋任務標題或狀態時進行處理
     @tasks = current_user.tasks.all
     @tasks = @tasks.where("title LIKE ?", "%#{sort_params[:title]}%") if sort_params[:title].present?
+    @tasks = @tasks.tagged_with(sort_params[:title]) if sort_params[:title].present? && @tasks.tagged_with(sort_params[:title]).present?
     @tasks = @tasks.where(state: sort_params[:search_state]) if sort_params[:search_state].present?
     @tasks = sorting_by(@tasks, :priority)
     @tasks = sorting_by(@tasks, :state)
@@ -22,6 +24,7 @@ class TasksController < ApplicationController
   def create
     @task = Task.new(task_params)
     @task.user_id = current_user[:id]
+    @task.tag_list=(params[:tags])
 
     if @task.save
       redirect_to tasks_path, notice: I18n.t("task.add_success") 
@@ -32,16 +35,14 @@ class TasksController < ApplicationController
   end
 
   def show 
-    @task = Task.find_by(id: params[:id])
   end
 
   def edit
-    @task = Task.find_by(id: params[:id])
   end
 
   def update
-    @task = Task.find_by(id: params[:id])
     if @task.update(task_params)
+      @task.tag_list=(params[:tags])
       @task.save 
       redirect_to tasks_path, notice: I18n.t("task.update_success") 
     else
@@ -67,10 +68,14 @@ class TasksController < ApplicationController
   end
 
   def task_params
-    params.require(:task).permit(:title, :description, :priority, :state, :deadline)
+    params.require(:task).permit(:title, :description, :priority, :state, :deadline, :tags)
   end
 
   def sort_params
     params.permit(:id, :state, :title, :priority ,:created_at, :deadline, :search, :search_state)
+  end
+
+  def find_task_id
+    @task = Task.find_by(id: params[:id])
   end
 end

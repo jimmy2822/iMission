@@ -15,6 +15,7 @@
     <tr><td><%= t("task.state")%>：<%= f.select :state , options_for_select([[t("states.created"), "created"], [t("states.progressing"), "progressing"], [t("states.completed"), "completed"]]) %></td></tr>
     <tr><td><%= t("task.priority")%>：<%= f.select :priority, options_for_select([[t("priorities.low"),"low"], [t("priorities.normal"),"normal"], [t("priorities.high"),"high"]]) %></td></tr>
     <tr><td><%= t("task.deadline")%>：<%= f.datetime_select :deadline %></td></tr>
+    <tr><td><%= t("task.tag_list")%>：<%= text_field_tag :tags, task.tag_list %></td></tr>
     <tr><td><%= f.submit %></td></tr>
   <% end %>
 </table>
