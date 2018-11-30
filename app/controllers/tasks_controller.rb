@@ -10,8 +10,8 @@ class TasksController < ApplicationController
     @tasks = @tasks.where(state: sort_params[:search_state]) if sort_params[:search_state].present?
     @tasks = sorting_by(@tasks, :priority)
     @tasks = sorting_by(@tasks, :state)
-    @tesks = sorting_by(@tasks, :deadline)
-    @tesks = sorting_by(@tesks, :created_at)
+    @tasks = sorting_by(@tasks, :deadline)
+    @tasks = sorting_by(@tasks, :created_at)
     @tasks = @tasks.page(params[:page])
   end
 
@@ -24,7 +24,6 @@ class TasksController < ApplicationController
   def create
     @task = Task.new(task_params)
     @task.user_id = current_user[:id]
-    @task.tag_list=(params[:tags])
 
     if @task.save
       redirect_to tasks_path, notice: I18n.t("task.add_success") 
@@ -42,7 +41,6 @@ class TasksController < ApplicationController
 
   def update
     if @task.update(task_params)
-      @task.tag_list=(params[:tags])
       @task.save 
       redirect_to tasks_path, notice: I18n.t("task.update_success") 
     else
@@ -68,7 +66,7 @@ class TasksController < ApplicationController
   end
 
   def task_params
-    params.require(:task).permit(:title, :description, :priority, :state, :deadline, :tags)
+    params.require(:task).permit(:title, :description, :priority, :state, :deadline, :tag_list)
   end
 
   def sort_params
