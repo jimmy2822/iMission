@@ -59,9 +59,3 @@ RSpec.configure do |config|
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
 end
-
-# Capybara.register_driver :selenium do |app|
-#   profile = Selenium::WebDriver::Chrome::Profile.new
-#   Capybara::Selenium::Driver.new( app, :profile => profile)
-# end
-Capybara.current_driver = :selenium

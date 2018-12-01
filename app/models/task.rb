@@ -2,7 +2,7 @@ class Task < ApplicationRecord
 
   #關係處理
   belongs_to :user
-  has_many :taggings
+  has_many :taggings, :dependent => :destroy
   has_many :tags, through: :taggings
   #驗證相關
   validates :title, presence: true 
