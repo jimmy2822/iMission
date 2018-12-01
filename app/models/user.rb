@@ -12,7 +12,7 @@ class User < ApplicationRecord
   enum role: {
     normal: 0,
     admin: 99
-  }, _prefix: :role_check
+  }
 
   private
 
