@@ -18,6 +18,8 @@ Things you may want to cover:
 - Model Task
 >title:string, description:string, deadline:date, priority:integer, tag:string
 
+![avatar]( iMisison_Final_DBD.png )
+
 * System dependencies
 
 * Configuration
