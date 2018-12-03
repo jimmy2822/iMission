@@ -24,7 +24,6 @@ Things you may want to cover:
 - Model Tag
 >name:string
 
--Model Tagging
 ![avatar]( iMisison_Final_DBD.png )
 
 * System dependencies
