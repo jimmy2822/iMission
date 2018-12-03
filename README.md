@@ -13,11 +13,18 @@ Things you may want to cover:
 
 * Table Schema
 - Model User
->email:string, password:string, name:string, role:integer
+>email:string, password_digest:string, name:string, role:integer
 
 - Model Task
->title:string, description:string, deadline:date, priority:integer, tag:string
+>title:string, description:string, deadline:datetime, priority:integer, state:integer, user_id:integer
 
+- Model Tagging
+>tag_id:integer, task_id:integer
+
+- Model Tag
+>name:string
+
+-Model Tagging
 ![avatar]( iMisison_Final_DBD.png )
 
 * System dependencies
